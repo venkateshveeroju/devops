@@ -1,0 +1,14 @@
+package com.devops.devops;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DevopsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DevopsApplication.class, args);
+		System.out.println("This is a demo app for DevOps practice");
+	}
+
+}
