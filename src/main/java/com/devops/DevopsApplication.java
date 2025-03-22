@@ -1,9 +1,9 @@
-package com.devops.devops;
+package com.devops;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.devops.")
 public class DevopsApplication {
 
 	public static void main(String[] args) {
