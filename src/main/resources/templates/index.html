@@ -2,9 +2,72 @@
 <html xmlns:th="http//www/thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+
+    <!-- Bootstrap CSS (from CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9a1t6Ls1X4qlt9Khb6Kv2oRx+0gXeXIn9b8V5I40SkJZr94f23fMZCqE4YV6v3Q3j" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <style>
+        .user-info-container {
+            margin-top: 50px;
+        }
+        .user-card {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .user-card .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .social-icons a {
+            margin-right: 15px;
+            color: #6c757d;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
-<h1>This is for DevOps practice</h1>
+
+<div class="container user-info-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="user-card">
+                <div class="row">
+                    <!-- Profile Image Section -->
+                    <div class="col-md-4 text-center">
+                        <img src="static/image.jpg" alt="User Profile" class="profile-image">
+                    </div>
+                    <!-- User Info Section -->
+                    <div class="col-md-8">
+                        <h2 class="text-center">John Doe</h2>
+                        <p class="text-center text-muted">Software Engineer</p>
+                        <p><strong>Email:</strong> john.doe@example.com</p>
+                        <p><strong>Location:</strong> New York, USA</p>
+                        <p><strong>Bio:</strong> Passionate software engineer with a focus on building scalable web applications. Experienced in Java, Spring Boot, and JavaScript frameworks.</p>
+
+                        <!-- Social Links -->
+                        <div class="social-icons">
+                            <a href="https://twitter.com/johndoe" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="https://linkedin.com/in/johndoe" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/johndoe" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zyd1uK2m6CI6QkPLT76nF9gq6gKkRtvF48pC1z5X" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-vcVt0WLHAc0S4EbkRdpF9re4cgnr0D0w0QIVQ2bNm6U1bbnqjIIT2VttG0TrUtEm" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0z4pxYvX5PzFOeOWjVSz1pcGZlLfe0jlWppOnoKhsK3npxT0" crossorigin="anonymous"></script>
+
 </body>
 </html>
