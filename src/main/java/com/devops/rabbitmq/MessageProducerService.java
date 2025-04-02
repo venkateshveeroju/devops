@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 //@Service
 public class MessageProducerService {
 
-    @Autowired
+    //@Autowired
     private AmqpTemplate amqpTemplate;
 
     private String exchange = "myExchange";
