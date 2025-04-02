@@ -5,3 +5,49 @@ spring:
     mode: HTML
     encoding: UTF-8
     cache: false  # Set to true in production
+    # RabbitMQ connection settings
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+  #H2DB Database Configuration
+  datasource:
+    url: jdbc:h2:file:./data/devops;NON_KEYWORDS=user
+    driverClassName: org.h2.Driver
+    username: admin
+    password: admin
+    application:
+      name: bank
+  main:
+    allow-circular-references: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate.ddl-auto: update
+    show-sql: false
+    generate-ddl: true
+
+server:
+  tomcat:
+    accessors:
+      enabled: true # Enable access log.
+      directory: logs # Directory in which log files are created. Can be relative to the tomcat base dir or absolute.
+      pattern: common # Format pattern for access logs.
+  address: 127.0.0.1
+  port: 8080
+
+
+security:
+  jwt:
+    secret-key: thisismysecretkeydude
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+  file:
+    name: ./logs/devops.log

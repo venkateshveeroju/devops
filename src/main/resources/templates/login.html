@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+    /* Global styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Centered container */
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .login-container:hover {
+      box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Header */
+    h2 {
+      color: #333;
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    /* Input Fields */
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #333;
+      background-color: #f9f9f9;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus {
+      border-color: #4CAF50;
+      outline: none;
+      background-color: #fff;
+      box-shadow: 0px 0px 8px rgba(76, 175, 80, 0.2);
+    }
+
+    /* Submit button */
+    button {
+      width: 100%;
+      padding: 15px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      background-color: #388e3c;
+    }
+
+    /* Error message */
+    .error-message {
+      color: #ff4d4d;
+      font-size: 14px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    /* Forgot password link */
+    .forgot-password {
+      color: #4CAF50;
+      font-size: 14px;
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 25px;
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      input[type="text"], input[type="password"], button {
+        font-size: 14px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login to Your Account</h2>
+
+    <form action="#" th:action="@{/login}" method="post" th:object="${user}">
+        <div>
+            <label for="username" style="display: block; font-size: 14px; color: #555; text-align: left;">Username:</label>
+            <input type="text" id="username" th:field="*{username}" placeholder="Enter your username" required />
+        </div>
+
+        <div>
+            <label for="password" style="display: block; font-size: 14px; color: #555; text-align: left;">Password:</label>
+            <input type="password" id="password" th:field="*{password}" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+
+        <a href="/forgot-password" class="forgot-password">Forgot your password?</a>
+    </form>
+</div>
+
+</body>
+</html>
