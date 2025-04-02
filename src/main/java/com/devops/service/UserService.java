@@ -23,7 +23,7 @@ public class UserService {
 
         // Save the user to the database
         User userSaved = userRepository.save(user);
-        if(userSaved.getUsername()!=null) {
+        if(userSaved==null || userSaved.getUsername()!=null) {
             return true;
         }
         return false;
