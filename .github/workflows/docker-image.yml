@@ -1,0 +1,59 @@
+name: Java CI/CD with Docker
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Java JDK
+      - name: Set up Java JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'  # Replace with the desired Java version
+          distribution: 'adoptopenjdk'  # Or 'zulu', 'oraclejdk', etc.
+
+      # Cache Maven dependencies (optional)
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Build and test with Maven
+      - name: Build and Test with Maven
+        run: |
+          mvn clean install -DskipTests=false
+
+      # Build the Docker image
+      - name: Build Docker image
+        run: |
+          docker build -t devops .
+
+      # Optionally push the Docker image to DockerHub (replace with your own credentials)
+      - name: Push Docker image to DockerHub
+        run: |
+          echo ${{ secrets.Venkat@123 }} | docker login -u ${{ secrets.veerojuvenkatesh }} --password-stdin
+          docker tag devops:latest ${{ secrets.veerojuvenkatesh }}/devops:latest
+          docker push ${{ secrets.veerojuvenkatesh }}/devops:latest
+
+      # Optionally store the Docker image as an artifact (if you don't want to push to DockerHub)
+      - name: Save Docker image as artifact (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: devops-image
+          path: ./devops.tar
+
