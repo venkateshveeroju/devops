@@ -36,7 +36,7 @@ stages:
         WebAppName: 'venky-webapp'
         DockerNamespace: 'veerojuvenkatesh/venkydockerrepo'
         DockerRepository: 'veerojuvenkatesh/venkydockerrepo'
-        DockerImageTag: '611'
+        DockerImageTag: '614'
         StartupCommand: 'java -jar  mybank.jar com.bank.BankApplication'
         
 
