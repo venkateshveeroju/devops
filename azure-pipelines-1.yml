@@ -28,5 +28,16 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: $(Build.BuildId)
+    - task: AzureRmWebAppDeployment@5
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'azureserviceconn'
+        appType: 'webAppHyperVContainer'
+        WebAppName: 'venky-webapp'
+        DockerNamespace: 'veerojuvenkatesh/venkydockerrepo'
+        DockerRepository: 'veerojuvenkatesh/venkydockerrepo'
+        DockerImageTag: '611'
+        StartupCommand: 'java -jar  mybank.jar com.bank.BankApplication'
+        
 
     
