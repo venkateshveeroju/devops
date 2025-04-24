@@ -34,8 +34,8 @@ stages:
         azureSubscription: 'azureserviceconn'
         appType: 'webAppContainer'
         WebAppName: 'venky-webapp-linux'
-        DockerNamespace: 'eerojuvenkatesh/venkydockerrepo:latest'
-        DockerRepository: 'eerojuvenkatesh/venkydockerrepo'
+        DockerNamespace: 'veerojuvenkatesh/venkydockerrepo:latest'
+        DockerRepository: 'veerojuvenkatesh/venkydockerrepo'
         DockerImageTag: 'latest'
         StartupCommand: 'java -jar  mybank.jar com.bank.BankApplication'
         
