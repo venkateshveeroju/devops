@@ -32,10 +32,10 @@ stages:
       inputs:
         ConnectionType: 'AzureRM'
         azureSubscription: 'azureserviceconn'
-        appType: 'webAppHyperVContainer'
-        WebAppName: 'venky-webapp'
-        DockerNamespace: 'veerojuvenkatesh/venkydockerrepo'
-        DockerRepository: 'veerojuvenkatesh/venkydockerrepo'
+        appType: 'webAppContainer'
+        WebAppName: 'venky-webapp-linux'
+        DockerNamespace: 'eerojuvenkatesh/venkydockerrepo:latest'
+        DockerRepository: 'eerojuvenkatesh/venkydockerrepo'
         DockerImageTag: 'latest'
         StartupCommand: 'java -jar  mybank.jar com.bank.BankApplication'
         
